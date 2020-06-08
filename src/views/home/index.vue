@@ -1,0 +1,29 @@
+<template>
+  <div class="dashboard-container">
+    <div class="dashboard-text">name: {{ user && user.name }}</div>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  name: 'Home',
+  computed: {
+    ...mapGetters(['user'])
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.dashboard {
+  &-container {
+    margin: 30px;
+  }
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+    height: 1000px;
+  }
+}
+</style>
