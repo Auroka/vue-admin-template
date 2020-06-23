@@ -32,7 +32,7 @@ const actions = {
       const response = {
         data: {
           token: 'as7w8sd7wq08e09w80',
-          name: 'lxd',
+          name: '无敌管理者',
           paths: ['/', 'home', '/menu', 'menu1', 'menu2']
         }
       }
@@ -40,7 +40,7 @@ const actions = {
       commit('SET_TOKEN', data.token)
       setToken(data.token)
 
-      // 只需要把用户信息存入浏览器缓存就可以了
+      // 只需要把用户信息存入浏览器缓存
       setUser(data)
 
       resolve()

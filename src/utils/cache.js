@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
-const TOKENKEY = '_token'
-const USERKEY = '_userinfo'
+const TOKENKEY = '_admin_token'
+const USERKEY = '_admin_userinfo'
 
 // 用户token
 export function getToken() {

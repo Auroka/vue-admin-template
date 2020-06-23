@@ -9,9 +9,9 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img :src="avatar" class="user-avatar" />
+      <el-dropdown class="right-container" trigger="click">
+        <div class="name-wrapper">
+          <span>{{ user && user.name }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -43,7 +43,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['sidebar'])
+    ...mapGetters(['sidebar', 'user'])
   },
   methods: {
     toggleSideBar() {
@@ -80,55 +80,23 @@ export default {
   .breadcrumb-container {
     float: left;
   }
-
   .right-menu {
+    display: flex;
+    align-items: center;
     float: right;
     height: 100%;
-    // line-height: 50px;
-
     &:focus {
       outline: none;
     }
-
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: 18px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-        transition: background 0.3s;
-
-        &:hover {
-          background: rgba(0, 0, 0, 0.025);
-        }
-      }
-    }
-
-    .avatar-container {
-      margin-right: 30px;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
+    .right-container {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      cursor: pointer;
+      i {
+        margin-left: 5px;
       }
     }
   }
