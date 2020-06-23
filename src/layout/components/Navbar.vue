@@ -37,11 +37,6 @@ export default {
     Breadcrumb,
     Hamburger
   },
-  data() {
-    return {
-      avatar: require('@/assets/avatar.png')
-    }
-  },
   computed: {
     ...mapGetters(['sidebar', 'user'])
   },
