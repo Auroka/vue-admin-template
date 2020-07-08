@@ -23,14 +23,9 @@ export function filterAsyncRoutes(routes, paths) {
 
   routes.forEach(route => {
     const tmp = { ...route }
-    if (hasPermission(paths, tmp)) {
+    if (hasPermission(paths, tmp) || tmp.path === '') {
       if (tmp.children) {
-        if (tmp.children.path === '') {
-          // 处理这种情况
-          // tmp.children = tmp.children
-        } else {
-          tmp.children = filterAsyncRoutes(tmp.children, paths)
-        }
+        tmp.children = filterAsyncRoutes(tmp.children, paths)
       }
       res.push(tmp)
     }
@@ -56,9 +51,9 @@ const actions = {
   generateRoutes({ commit }, paths) {
     return new Promise(resolve => {
       let accessedRoutes
-      
+
       accessedRoutes = filterAsyncRoutes(asyncRoutes, paths).concat(lastRoutes)
-      
+
       commit('SET_ROUTES', accessedRoutes) // 用来生成侧边菜单栏
       resolve(accessedRoutes)
     })
