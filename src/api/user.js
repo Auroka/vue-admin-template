@@ -1,8 +1,8 @@
 /*
- * @Description:
+ * @Description: 用户模块
  * @Author: lxd
  * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-07-24 14:28:01
+ * @LastEditTime: 2020-07-24 14:44:48
  */
 
 import { postRequest } from '@/utils/request'

@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: lxd
- * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-07-24 14:36:33
- */
-
 import Vue from 'vue'
 import Router from 'vue-router'
 

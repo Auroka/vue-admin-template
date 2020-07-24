@@ -3,13 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './permission' // permission control
+import './utils/directive/permission' // 自定义全局指令
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-// import "@/assets/style/index.scss"; // 一些公用样式
-import '@/styles/index.scss' // global css
+import '@/styles/index.scss'
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
+import './element-variables.scss'
 
 Vue.use(ElementUI)
 
