@@ -2,7 +2,7 @@
  * @Description:
  * @Author: lxd
  * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-07-24 14:32:30
+ * @LastEditTime: 2020-07-24 14:36:33
  */
 
 import Vue from 'vue'
@@ -20,7 +20,7 @@ Router.prototype.push = function push(location) {
 import Layout from '@/layout'
 
 /* Router Modules */
-import menuRouters from './modules/menu'
+import systemRouters from './modules/system'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -71,11 +71,11 @@ export const constantRoutes = [
       }
     ]
   },
-  menuRouters
+  systemRouters
 ]
 
 // 异步加载的路由
-export const asyncRoutes = [menuRouters]
+export const asyncRoutes = []
 
 export const lastRoutes = [
   // 404 page must be placed at the end !!!
