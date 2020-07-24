@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: lxd
+ * @Date: 2020-06-08 17:31:42
+ * @LastEditTime: 2020-07-24 14:32:30
+ */
+
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -50,11 +57,7 @@ export const constantRoutes = [
     path: '/404',
     component: () => import('@/views/errorpage/404'),
     hidden: true
-  }
-]
-
-// 异步加载的路由
-export const asyncRoutes = [
+  },
   {
     path: '/',
     component: Layout,
@@ -70,6 +73,9 @@ export const asyncRoutes = [
   },
   menuRouters
 ]
+
+// 异步加载的路由
+export const asyncRoutes = [menuRouters]
 
 export const lastRoutes = [
   // 404 page must be placed at the end !!!

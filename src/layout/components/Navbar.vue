@@ -11,7 +11,7 @@
     <div class="right-menu">
       <el-dropdown class="right-container" trigger="click">
         <div class="name-wrapper">
-          <span>{{ user && user.name }}</span>
+          <span>{{ user && user.userInfoBO && user.userInfoBO.account }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -19,7 +19,7 @@
             <el-dropdown-item>首页</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">退出</span>
+            <span style="display:block;" @click="apiLogout">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -31,22 +31,37 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
-
+import { getUser, clearUserInfo } from '@/utils/cache'
+import { logout } from '@/api/user'
 export default {
+  data() {
+    return {
+      user: {}
+    }
+  },
+  mounted() {
+    this.user = getUser()
+  },
   components: {
     Breadcrumb,
     Hamburger
   },
   computed: {
-    ...mapGetters(['sidebar', 'user'])
+    ...mapGetters(['sidebar'])
   },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      await this.$store.dispatch('user/logout')
+    apiLogout() {
+      clearUserInfo()
       this.$router.push(`/login`)
+      // logout()
+      //   .then(res => {
+      //     clearUserInfo()
+      //     this.$router.push(`/login`)
+      //   })
+      //   .catch(() => {})
     }
   }
 }

@@ -1,27 +1,27 @@
+<!--
+ * @Description: 首页
+ * @Author: lxd
+ * @Date: 2020-06-08 17:31:42
+ * @LastEditTime: 2020-07-24 14:24:51
+-->
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ user && user.name }}</div>
+  <div class="home-wrap">
+    <div class="text">欢迎使用</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  name: 'Home',
-  computed: {
-    ...mapGetters(['user'])
-  }
+  name: 'Home'
 }
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
+.home-wrap {
+  .text {
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
   }
 }
 </style>

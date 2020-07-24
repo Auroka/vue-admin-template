@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
-const TOKENKEY = '_admin_token'
-const USERKEY = '_admin_userinfo'
+const TOKENKEY = '_admin_contract_token'
+const USERKEY = '_admin_contract_userinfo'
 
 // 用户token
 export function getToken() {
@@ -9,11 +9,7 @@ export function getToken() {
 }
 
 export function setToken(token) {
-  return Cookies.set(TOKENKEY, token)
-}
-
-export function removeToken() {
-  return Cookies.remove(TOKENKEY)
+  Cookies.set(TOKENKEY, token, { expires: 7 })
 }
 
 // 用户信息
@@ -22,9 +18,11 @@ export function getUser() {
 }
 
 export function setUser(user) {
-  return localStorage.setItem(USERKEY, JSON.stringify(user))
+  localStorage.setItem(USERKEY, JSON.stringify(user))
 }
 
-export function removeUser() {
-  return localStorage.removeItem(USERKEY)
+// 清空用户信息
+export function clearUserInfo() {
+  Cookies.remove(TOKENKEY)
+  localStorage.removeItem(USERKEY)
 }
