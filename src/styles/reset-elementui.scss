@@ -1,0 +1,13 @@
+.el-table {
+  // 表头添加背景色
+  th {
+    background-color: #f9f9f9 !important;
+    .cell {
+      color: #333;
+    }
+  }
+  // 重写表格中按钮样式
+  .cell .el-button--text {
+    padding: 0px 0px !important;
+  }
+}
