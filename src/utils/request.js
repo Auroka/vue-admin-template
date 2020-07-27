@@ -130,21 +130,23 @@ service.interceptors.response.use(
 
 /**
  * 请求
- * @param {*} url 请求地址
- * @param {*} data 请求数据
+ * @param {string} url 请求地址
+ * @param {object} data 请求数据
+ * @param {string} responseType 相应类型 当请求导出文件流时 responseType='blob'
  */
-export const postRequestJson = (url, data) => {
+export const postRequestJson = (url, data, responseType = '') => {
   const headers = { 'Content-Type': 'application/json' }
   return service({
     method: 'post',
     url: url,
     data: data,
-    headers: headers
+    headers: headers,
+    responseType
   })
 }
 
 // formData
-export const postRequest = (url, data) => {
+export const postRequest = (url, data, responseType = '') => {
   const headers = {
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
   }
@@ -159,7 +161,8 @@ export const postRequest = (url, data) => {
         })
       }
     ],
-    headers: headers
+    headers: headers,
+    responseType
   })
 }
 
