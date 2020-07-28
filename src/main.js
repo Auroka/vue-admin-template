@@ -18,7 +18,9 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, {
+  size: 'medium' // set element-ui default size
+})
 
 Vue.config.productionTip = false
 

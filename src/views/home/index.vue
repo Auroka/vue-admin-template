@@ -2,7 +2,7 @@
  * @Description: 首页
  * @Author: lxd
  * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-07-28 11:02:06
+ * @LastEditTime: 2020-07-28 16:14:07
 -->
 <template>
   <div class="home-wrap">
