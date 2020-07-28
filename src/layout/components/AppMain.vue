@@ -1,7 +1,15 @@
+<!--
+ * @Description: 
+ * @Author: lxd
+ * @Date: 2020-06-08 17:31:42
+ * @LastEditTime: 2020-07-28 16:07:36
+-->
 <template>
-  <section class="app-main">
+  <section class="app-section">
     <transition name="fade-transform" mode="out-in">
-      <router-view :key="key" />
+      <main class="app-main-wrap">
+        <router-view :key="key" />
+      </main>
     </transition>
   </section>
 </template>
@@ -18,15 +26,18 @@ export default {
 </script>
 
 <style scoped>
-.app-main {
+.app-section {
   /*50 = navbar  */
   min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
 }
-.fixed-header + .app-main {
+.fixed-header + .app-section {
   padding-top: 50px;
+}
+.app-main-wrap {
+  padding: 20px;
 }
 </style>
 
