@@ -12,6 +12,12 @@ import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
 import './element-variables.scss'
 
+import * as filters from './filters' // global filters
+// register global utility filters
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

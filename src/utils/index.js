@@ -1,3 +1,10 @@
+/*
+ * @Description: 一些公用函数
+ * @Author: lxd
+ * @Date: 2020-07-24 14:38:50
+ * @LastEditTime: 2020-07-28 10:46:59
+ */
+
 import { getUser } from '@/utils/cache'
 /**
  * 是否有该权限
@@ -18,7 +25,7 @@ export function getAuth(val) {
  * @param {*} fmt 需要转换的格式 yyyy-MM-dd
  * @param {*} date 日期 2019-12-12 11:11:11
  */
-export function dateFormat(fmt, date) {
+export function formatDate(date, fmt = 'yyyy-MM-dd') {
   date = new Date(date)
   var o = {
     'M+': date.getMonth() + 1, // 月份
