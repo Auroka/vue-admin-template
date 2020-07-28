@@ -2,9 +2,9 @@
  * @Description: Vue.config.js 配置选项   配置参考:https://cli.vuejs.org/zh/config/
  * @Author: lxd
  * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-07-28 10:51:12
+ * @LastEditTime: 2020-07-28 16:38:54
  */
-
+'use strict'
 const path = require('path')
 
 function resolve(dir) {
@@ -24,22 +24,22 @@ module.exports = {
       }
     }
   },
+  configureWebpack: {
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    name: '后台管理系统',
+    resolve: {
+      alias: {
+        '@': resolve('src')
+      }
+    }
+  },
   // 配置 webpack-dev-server 行为
   devServer: {
     port: 8080,
     overlay: {
       warnings: false,
       errors: true
-    },
-    configureWebpack: {
-      // provide the app's title in webpack's name field, so that
-      // it can be accessed in index.html to inject the correct title.
-      name: name,
-      resolve: {
-        alias: {
-          '@': resolve('src')
-        }
-      }
     },
     // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#配置代理
     proxy: {

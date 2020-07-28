@@ -2,7 +2,7 @@
  * @Description: 系统设置
  * @Author: lxd
  * @Date: 2020-07-21 17:58:07
- * @LastEditTime: 2020-07-24 14:44:28
+ * @LastEditTime: 2020-07-28 16:36:27
  */
 
 import Layout from '@/layout'
@@ -10,8 +10,7 @@ import Layout from '@/layout'
 const memberRouters = {
   path: '/system',
   component: Layout,
-  // name: 'Contract',
-  redirect: '/system/role',
+  redirect: 'noRedirect',
   meta: {
     title: '系统',
     icon: 'icon-setup_fill'
