@@ -1,3 +1,9 @@
+/*
+ * @Description:
+ * @Author: lxd
+ * @Date: 2020-06-08 17:31:42
+ * @LastEditTime: 2020-08-17 11:40:15
+ */
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // progress bar
@@ -12,7 +18,7 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start()
 
   // set page title
-  document.title = getPageTitle(to.meta.title)
+  // document.title = getPageTitle(to.meta.title)
 
   // determine whether the user has logged in
   const token = getToken()
