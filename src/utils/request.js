@@ -17,6 +17,10 @@ const configDev = {
   'contract-api': {
     prefix: 'contract-api',
     target: requestIp + ':18099/contract-api'
+  },
+  'oss-api': {
+    prefix: 'oss-api',
+    target: requestIp + ':18030/oss-api'
   }
 }
 
@@ -48,6 +52,7 @@ service.interceptors.request.use(
         }
       }
     }
+
     const token = getToken()
     if (token) {
       // let each request carry token

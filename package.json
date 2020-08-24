@@ -16,6 +16,7 @@
     "js-ufunc": "^1.0.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
+    "qiniu-js": "^3.1.1",
     "qs": "^6.9.1",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",

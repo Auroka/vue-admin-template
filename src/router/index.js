@@ -14,6 +14,7 @@ import Layout from '@/layout'
 
 /* Router Modules */
 import systemRouters from './modules/system'
+import demoRouters from './modules/demo'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -64,6 +65,7 @@ export const constantRoutes = [
       }
     ]
   },
+  demoRouters,
   systemRouters
 ]
 
