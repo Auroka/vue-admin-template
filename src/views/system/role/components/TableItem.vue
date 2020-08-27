@@ -2,7 +2,7 @@
  * @Description: 权限组-表格模块
  * @Author: lxd
  * @Date: 2020-07-23 17:02:21
- * @LastEditTime: 2020-07-24 11:36:11
+ * @LastEditTime: 2020-08-27 13:52:17
 -->
 <template>
   <div class="system-role-table-wrap">
@@ -17,7 +17,7 @@
       <el-table-column prop="userTotal" label="人员"> </el-table-column>
       <el-table-column prop="createTime" label="创建时间">
         <template slot-scope="scope">
-          {{ dateFormat('yyyy-MM-dd hh:mm', scope.row.createTime) }}
+          {{ scope.row.createTime | formatDate('yyyy-MM-dd hh:mm') }}
         </template>
       </el-table-column>
       <el-table-column label="启用/禁用">
@@ -52,7 +52,6 @@
 <script>
 import eventBus from '@/utils/eventBus'
 import MixinPagination from '@/mixins/Pagination/index'
-import { dateFormat } from '@/utils'
 import { getRole, enableRole } from '@/api/system'
 export default {
   data() {
@@ -73,7 +72,6 @@ export default {
   },
   mixins: [MixinPagination],
   methods: {
-    dateFormat,
     getIndex(val) {
       return (this.page.pageNo - 1) * this.page.pageSize + val + 1
     },
