@@ -50,10 +50,12 @@ service.interceptors.request.use(
         if (obj) {
           config.url = config.url.replace(`${obj.prefix}`, obj.target)
         }
+        // config.url = 'http://test.yueranmh.com/' + config.url
       }
     }
 
     const token = getToken()
+
     if (token) {
       // let each request carry token
       config.headers.Authorization = `Bearer ${token}`
@@ -116,6 +118,7 @@ service.interceptors.response.use(
     }
   },
   error => {
+    Message.closeAll()
     if (error.message.includes('timeout')) {
       Message({
         message: '请求超时',

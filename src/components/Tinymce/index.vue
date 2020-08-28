@@ -3,12 +3,14 @@
     :class="{ fullscreen: fullscreen }"
     class="tinymce-container"
     :style="{ width: containerWidth }"
+    v-loading="loading"
+    element-loading-text="图片上传中..."
   >
     <textarea :id="tinymceId" class="tinymce-textarea" />
     <div class="editor-custom-btn-container">
       <editorImage
-        color="#1890ff"
         class="editor-upload-btn"
+        @loading="onLoading"
         @successCBK="imageSuccessCBK"
       />
     </div>
@@ -71,6 +73,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       hasChange: false,
       hasInit: false,
       tinymceId: this.id,
@@ -117,6 +120,9 @@ export default {
     this.destroyTinymce()
   },
   methods: {
+    onLoading(val) {
+      this.loading = val
+    },
     init() {
       // dynamic load tinymce from cdn
       load(tinymceCDN, err => {
@@ -185,10 +191,17 @@ export default {
     getContent() {
       window.tinymce.get(this.tinymceId).getContent()
     },
-    imageSuccessCBK(url) {
-      window.tinymce
-        .get(this.tinymceId)
-        .insertContent(`<img class="wscnph" src="${url}" />`)
+    imageSuccessCBK(images) {
+      console.log(images)
+      images.forEach(item => {
+        if (item.type === 'success') {
+          window.tinymce
+            .get(this.tinymceId)
+            .insertContent(
+              `<img class="editor-image" src="${item.url}" style="max-width:500px;max-height:500px;" />`
+            )
+        }
+      })
     }
   }
 }
@@ -208,8 +221,8 @@ export default {
 }
 .editor-custom-btn-container {
   position: absolute;
-  right: 4px;
-  top: 4px;
+  right: 6px;
+  top: 6px;
   /*z-index: 2005;*/
 }
 .fullscreen .editor-custom-btn-container {

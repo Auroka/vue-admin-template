@@ -2,14 +2,13 @@
  * @Description:
  * @Author: lxd
  * @Date: 2020-06-08 17:31:42
- * @LastEditTime: 2020-08-17 11:40:15
+ * @LastEditTime: 2020-08-28 13:25:29
  */
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { getToken, getUser, clearUserInfo } from '@/utils/cache' // get token from cookie
-import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
@@ -21,8 +20,8 @@ router.beforeEach(async (to, from, next) => {
   // document.title = getPageTitle(to.meta.title)
 
   // determine whether the user has logged in
+
   const token = getToken()
-  console.log('token:', token)
 
   if (token) {
     if (to.path === '/login') {
@@ -43,7 +42,6 @@ router.beforeEach(async (to, from, next) => {
             'permission/generateRoutes',
             paths
           )
-          console.log('accessRoutes', accessRoutes)
           // dynamically add accessible routes
           router.addRoutes(accessRoutes)
           // hack method to ensure that addRoutes is complete

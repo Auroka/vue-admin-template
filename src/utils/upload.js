@@ -1,3 +1,9 @@
+/*
+ * @Description: 七牛上传
+ * @Author: lxd
+ * @Date: 2020-08-24 17:42:36
+ * @LastEditTime: 2020-08-28 11:34:07
+ */
 import * as qiniu from 'qiniu-js'
 import { getQiniuToken } from '@/api/upload'
 
@@ -28,7 +34,7 @@ export function upload(origin, item, file) {
         if (item) {
           item.onError(file)
         }
-        reject()
+        reject(file)
       })
   })
 }
@@ -68,7 +74,7 @@ function qnUpload(resolve, reject, item, file, token) {
         // token失效
         token = ''
       }
-      reject()
+      reject(file)
     },
     complete: result => {
       // 接收成功后返回的信息
