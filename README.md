@@ -1,6 +1,8 @@
 ## 前言
 
-奥利给！
+该项目是个基础通用后台模板，基于 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/) 进行精简修改
+
+感谢 [PanJiaChen](https://github.com/PanJiaChen) 大佬为社区做的贡献
 
 
 ## 技术栈
